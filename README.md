@@ -1,1 +1,1 @@
-# RandomizerApplication
+# RandomizerGen
