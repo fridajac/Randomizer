@@ -27,4 +27,7 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
+# File that stores all passwords and API keys
+PasswordsAndKeys.java
+
 # End of https://www.toptal.com/developers/gitignore/api/java
