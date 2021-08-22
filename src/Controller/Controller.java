@@ -21,6 +21,8 @@ public class Controller {
                 break;
             case Name:
                 serviceHttpClient.getResponse("https://randommer.io/api/Name?nameType=firstname&quantity="+quantity);
+            case Address:
+                serviceHttpClient.getResponse("https://randommer.io/api/Misc/Random-Address?number="+quantity+"&culture=en");
         }
     }
 }

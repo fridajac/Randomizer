@@ -19,7 +19,7 @@ public class ConsoleWindow {
     public void askForInput() {
         int userChoice = -1;
         while(userChoice != 0) {
-            System.out.println("\nWhat type of random would you like? \n 1. Phone.\n 2. Name \n To quit press 0");
+            System.out.println("\nWhat type of random would you like? \n 1. Phone.\n 2. Name \n 3. Address \n To quit press 0");
             userChoice = scanner.nextInt();
             if (userChoice != 0) {
                 System.out.println("How many?");
@@ -39,6 +39,8 @@ public class ConsoleWindow {
             case 2:
                 returnType = ReturnType.Name;
                 break;
+            case 3:
+                returnType = ReturnType.Address;
             default:
                 break;
         }
