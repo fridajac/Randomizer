@@ -18,6 +18,9 @@ public class Controller {
         switch (returnType){
             case Phone:
                 serviceHttpClient.getResponse("https://randommer.io/api/Phone/Generate?CountryCode=SE&Quantity="+quantity);
+                break;
+            case Name:
+                serviceHttpClient.getResponse("https://randommer.io/api/Name/Generate?CountryCode=SE&Quantity="+quantity);
         }
     }
 }
