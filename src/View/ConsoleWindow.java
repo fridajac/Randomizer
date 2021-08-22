@@ -12,25 +12,41 @@ public class ConsoleWindow {
 
     public ConsoleWindow(Controller controller) {
         this.controller = controller;
+        System.out.println("Welcome to the generator");
         askForInput();
     }
 
     public void askForInput() {
-        ReturnType returnType = null;
-        System.out.println("Welcome to the generator. What type of random would you like? \n 1. Phone.\n 2. Name \n To quit press 0");
-        int inputType = scanner.nextInt();
-        while(inputType!=0) {
-            System.out.println("How many?");
-            int quantityInput = scanner.nextInt();
-            if (inputType == 1) {
-                returnType = ReturnType.Phone;
-                controller.getRandom(ReturnType.Phone, quantityInput);
+        int userChoice = -1;
+        while(userChoice != 0) {
+            System.out.println("\nWhat type of random would you like? \n 1. Phone.\n 2. Name \n To quit press 0");
+            userChoice = scanner.nextInt();
+            if (userChoice != 0) {
+                System.out.println("How many?");
+                int wishedQuantity = scanner.nextInt();
+                sendRequest(userChoice, wishedQuantity);
             }
-            if(inputType == 2){
-                returnType = ReturnType.Name;
-            }
-            controller.getRandom(returnType, quantityInput);
         }
         System.out.println("Welcome back");
+    }
+
+    private void sendRequest(int userChoice, int wishedQuantity) {
+        ReturnType returnType = null;
+        switch (userChoice) {
+            case 1:
+                returnType = ReturnType.Phone;
+                break;
+            case 2:
+                returnType = ReturnType.Name;
+                break;
+            default:
+                break;
+        }
+        controller.getRandom(returnType, wishedQuantity);
+        printResponse("Svaret!");
+    }
+
+    private void printResponse(String response) {
+        System.out.println(response);
     }
 }
