@@ -1,12 +1,30 @@
 package View;
 
-import Model.Response;
+import Controller.Controller;
+import Model.ReturnType;
 
-import javax.swing.*;
+import java.util.Scanner;
 
 public class ConsoleWindow {
 
-    public void printResponse(Response response){
-        JOptionPane.showMessageDialog(null, response.toString());
+    Controller controller;
+    Scanner scanner = new Scanner(System.in);
+
+    public ConsoleWindow(Controller controller) {
+        this.controller = controller;
+        askForInput();
+    }
+
+    public void askForInput() {
+        System.out.println("Welcome to the generator. What type of random would you like? \n 1. Phone.\n To quit press 0");
+        int inputType = scanner.nextInt();
+        while(inputType!=0) {
+            System.out.println("How many?");
+            int quantityInput = scanner.nextInt();
+            if (inputType == 1) {
+                controller.getRandom(ReturnType.Phone, quantityInput);
+            }
+        }
+        System.out.println("Welcome back");
     }
 }
