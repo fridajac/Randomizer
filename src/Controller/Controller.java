@@ -2,16 +2,16 @@ package Controller;
 
 import Model.ReturnType;
 import Services.ServiceHttpClient;
-import View.ConsoleWindow;
+import View.IUserInterface;
 
 public class Controller {
 
     private ServiceHttpClient serviceHttpClient;
-    private ConsoleWindow consoleWindow;
+    private IUserInterface userInterface;
 
-    public Controller() {
+    public Controller(IUserInterface userInterface) {
        serviceHttpClient = new ServiceHttpClient();
-       consoleWindow = new ConsoleWindow(this);
+       this.userInterface = userInterface;
     }
 
     public void getRandom(ReturnType returnType, int quantity){

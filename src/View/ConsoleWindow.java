@@ -5,13 +5,12 @@ import Model.ReturnType;
 
 import java.util.Scanner;
 
-public class ConsoleWindow {
+public class ConsoleWindow implements IUserInterface {
 
     Controller controller;
     Scanner scanner = new Scanner(System.in);
 
-    public ConsoleWindow(Controller controller) {
-        this.controller = controller;
+    public ConsoleWindow() {
         System.out.println("Welcome to the generator");
         askForInput();
     }
@@ -50,5 +49,9 @@ public class ConsoleWindow {
 
     private void printResponse(String response) {
         System.out.println(response);
+    }
+
+    public void setController(Controller controller) {
+        this.controller = controller;
     }
 }
